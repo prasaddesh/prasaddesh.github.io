@@ -9,27 +9,35 @@
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
-            background: #f4f4f9;
-            color: #333;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #212529;
         }
         header {
-            background-color: #0078d7;
+            background: linear-gradient(90deg, #0078d7, #0056a3);
             color: white;
-            padding: 1rem;
             text-align: center;
+            padding: 2rem;
         }
         header h1 {
             margin: 0;
+            font-size: 2.5rem;
+        }
+        header p {
+            margin: 0.5rem 0 0;
         }
         nav {
+            background: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             display: flex;
             justify-content: center;
-            gap: 1rem;
             padding: 1rem;
-            background-color: #f4f4f9;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         nav a {
+            margin: 0 1rem;
             text-decoration: none;
             color: #0078d7;
             font-weight: bold;
@@ -38,12 +46,16 @@
             text-decoration: underline;
         }
         section {
-            padding: 2rem;
-            max-width: 800px;
-            margin: 0 auto;
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         section h2 {
-            border-bottom: 2px solid #0078d7;
+            color: #0056a3;
+            border-bottom: 2px solid #0056a3;
             padding-bottom: 0.5rem;
             margin-bottom: 1rem;
         }
@@ -55,17 +67,31 @@
             margin-top: 2rem;
         }
         .card {
-            background: white;
+            background: #f9f9f9;
             padding: 1rem;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             margin-bottom: 1rem;
+        }
+        .skills, .experience, .education {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .skills .card, .experience .card, .education .card {
+            flex: 1 1 calc(50% - 1rem);
+        }
+        @media (max-width: 600px) {
+            .skills .card, .experience .card, .education .card {
+                flex: 1 1 100%;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <h1>Prasad Nitin Deshpande</h1>
+        <p>Cloud Engineer | Dallas, TX | <a href="mailto:pdprasaddeshpande@gmail.com" style="color: white; text-decoration: underline;">pdprasaddeshpande@gmail.com</a></p>
     </header>
     <nav>
         <a href="#about">About</a>
@@ -76,51 +102,69 @@
     </nav>
     <section id="about">
         <h2>About Me</h2>
-        <p>Cloud Engineer professional with 4 years of work experience specializing in Linux Administration, Orchestration tools, Automation (IaC), and Project Management.</p>
+        <p>I am a Cloud Engineer with 4 years of experience specializing in Linux Administration, Orchestration tools, Automation (IaC), and Project Management. My goal is to optimize cloud infrastructures and deliver scalable solutions.</p>
     </section>
     <section id="skills">
         <h2>Skills</h2>
-        <div class="card">
-            <ul>
-                <li><strong>Networking:</strong> VPC, Firewall, Cloud Load Balancing, Cloud CDN, Cloud DNS</li>
-                <li><strong>Cloud Technologies:</strong> AWS, Azure, GCP, Kubernetes, Terraform</li>
-                <li><strong>Databases:</strong> MySQL, RDS, DynamoDB, Google Big Query</li>
-                <li><strong>Certifications:</strong> AWS Solutions Architect, Azure Fundamentals, Kubernetes Engineer</li>
-            </ul>
+        <div class="skills">
+            <div class="card">
+                <h3>Networking</h3>
+                <p>VPC, Firewall, Cloud Load Balancing, Cloud CDN, Cloud DNS</p>
+            </div>
+            <div class="card">
+                <h3>Cloud Technologies</h3>
+                <p>AWS, Azure, GCP, Kubernetes, Terraform</p>
+            </div>
+            <div class="card">
+                <h3>Databases</h3>
+                <p>MySQL, RDS, DynamoDB, Google Big Query</p>
+            </div>
+            <div class="card">
+                <h3>Certifications</h3>
+                <p>AWS Solutions Architect, Azure Fundamentals, Kubernetes Engineer</p>
+            </div>
         </div>
     </section>
     <section id="experience">
         <h2>Work Experience</h2>
-        <div class="card">
-            <h3>Cloud Engineer Intern | Tenet Employment Inc | Dallas, TX</h3>
-            <ul>
-                <li>Containerized Python scripts with Docker, reducing cloud costs by 5%.</li>
-                <li>Automated infrastructure with Airflow DAGs, improving workflow efficiency by 30%.</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h3>Cloud Support Engineer | Digitalocean | Bangalore, India</h3>
-            <ul>
-                <li>Optimized AWS provisioning, reducing expenses by 50%.</li>
-                <li>Implemented Jenkins pipelines for rapid deployments, reducing downtime by 95%.</li>
-            </ul>
+        <div class="experience">
+            <div class="card">
+                <h3>Cloud Engineer Intern</h3>
+                <p><strong>Tenet Employment Inc | Dallas, TX</strong></p>
+                <ul>
+                    <li>Containerized Python scripts with Docker, reducing cloud costs by 5%.</li>
+                    <li>Automated workflows using Airflow DAGs, improving efficiency by 30%.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Cloud Support Engineer</h3>
+                <p><strong>DigitalOcean | Bangalore, India</strong></p>
+                <ul>
+                    <li>Optimized AWS provisioning, reducing expenses by 50%.</li>
+                    <li>Implemented Jenkins pipelines for faster deployments, reducing downtime by 95%.</li>
+                </ul>
+            </div>
         </div>
     </section>
     <section id="education">
         <h2>Education</h2>
-        <div class="card">
-            <h3>University of Texas at Dallas</h3>
-            <p>Master of Information Technology and Management (2023-2025), GPA: 3.96</p>
-        </div>
-        <div class="card">
-            <h3>Dr. Babasaheb Ambedkar Marathwada University</h3>
-            <p>Bachelor of Engineering in Computer Science (2014-2018), GPA: 3.50</p>
+        <div class="education">
+            <div class="card">
+                <h3>University of Texas at Dallas</h3>
+                <p>Master of Information Technology and Management (2023-2025)</p>
+                <p><strong>GPA:</strong> 3.96</p>
+            </div>
+            <div class="card">
+                <h3>Dr. Babasaheb Ambedkar Marathwada University</h3>
+                <p>Bachelor of Engineering in Computer Science (2014-2018)</p>
+                <p><strong>GPA:</strong> 3.50</p>
+            </div>
         </div>
     </section>
     <section id="contact">
         <h2>Contact</h2>
-        <p>Email: <a href="mailto:pdprasaddeshpande@gmail.com">pdprasaddeshpande@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/prasadeshpande/" target="_blank">linkedin.com/in/prasadeshpande</a></p>
+        <p><strong>Email:</strong> <a href="mailto:pdprasaddeshpande@gmail.com">pdprasaddeshpande@gmail.com</a></p>
+        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/prasadeshpande/" target="_blank">linkedin.com/in/prasadeshpande</a></p>
     </section>
     <footer>
         <p>&copy; 2024 Prasad Nitin Deshpande. All rights reserved.</p>
